@@ -92,9 +92,16 @@ public class AtencionController {
 
 
     @DeleteMapping("/{id}")
-    public void deleteMedico(@PathVariable Long id){
-        medicoService.deleteMedico(id);           
+    public ResponseEntity<Object> deleteMedico(@PathVariable Long id){
+    Optional<Medico> existingMedicoOptional = medicoService.getMedicoById(id);
+    if(existingMedicoOptional.isEmpty()){
+        log.error("No se encontro el medico con ID {}", id);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("No se encontro el medico con ID "+ id));
     }
+
+    medicoService.deleteMedico(id);
+    return ResponseEntity.ok().build();
+}
     
     static class ErrorResponse{
         private final String message;
