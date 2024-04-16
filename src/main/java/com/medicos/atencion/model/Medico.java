@@ -1,50 +1,85 @@
 package com.medicos.atencion.model;
 
-import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+
+@Entity
+@Table(name = "medico")
 public class Medico {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "rutmed")
     private String rutmed;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "edad")
     private int edad;
+
+    @Column(name = "especialidad")
     private String especialidad;
-    private List<Paciente> pacientes;
 
-    public Medico(Long id, String rutmed, String nombre, int edad, String especialidad, List<Paciente> pacientes){
-        this.id = id;
-        this.rutmed = rutmed;
-        this.nombre = nombre;
-        this.edad = edad;
-        this.especialidad = especialidad;
-        this.pacientes = pacientes;
-    }
+    // Nuevo atributo
+    @Column(name = "paciente_rut")
+    private String pacienteRut;
+  
 
-
-
-    //Getters @
-    public Long getId(){
+    // Getters and Setters
+    public Long getId() {
         return id;
     }
 
-    public String getRutMed() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRutmed() {
         return rutmed;
+    }
+
+    public void setRutmed(String rutmed) {
+        this.rutmed = rutmed;
     }
 
     public String getNombre() {
         return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public int getEdad() {
         return edad;
     }
 
-    public String getEspecialidad(){
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getEspecialidad() {
         return especialidad;
     }
 
-    public List<Paciente> getPacientes(){
-        return pacientes;
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 
+    public String getPacienteRut() {
+        return pacienteRut;
+    }
+
+    public void setPacienteRut(String pacienteRut) {
+        this.pacienteRut = pacienteRut;
+    }
 }
