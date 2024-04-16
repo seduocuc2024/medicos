@@ -1,17 +1,18 @@
-package com.medicos.atencion;
+package com.medicos.atencion.model;
 
 import java.util.List;
 
 public class Medico {
     
+    private Long id;
     private String rutmed;
     private String nombre;
     private int edad;
     private String especialidad;
     private List<Paciente> pacientes;
 
-    public Medico(String rutmed, String nombre, int edad, String especialidad, List<Paciente> pacientes){
-
+    public Medico(Long id, String rutmed, String nombre, int edad, String especialidad, List<Paciente> pacientes){
+        this.id = id;
         this.rutmed = rutmed;
         this.nombre = nombre;
         this.edad = edad;
@@ -22,6 +23,9 @@ public class Medico {
 
 
     //Getters @
+    public Long getId(){
+        return id;
+    }
 
     public String getRutMed() {
         return rutmed;
