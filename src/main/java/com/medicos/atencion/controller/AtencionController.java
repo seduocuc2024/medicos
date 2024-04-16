@@ -58,9 +58,38 @@ public class AtencionController {
     }
     
     @PutMapping("/{id}")
-    public Medico updateMedico(@PathVariable Long id, @RequestBody Medico medico){
-        return medicoService.updateMedico(id, medico);
+    public ResponseEntity<Object> updateMedico(@PathVariable Long id, @RequestBody Medico medico){
+        Optional<Medico> existingMedicoOptional = medicoService.getMedicoById(id);
+        if(existingMedicoOptional.isEmpty()){
+            log.error("No se encontro el medico con ID {}", id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse("No se encontro el medico con ID "+ id));
+        }
+
+        Medico existingMedico = existingMedicoOptional.get();
+
+        // Validaciones
+        if (medico.getRutmed() == null || medico.getRutmed().isEmpty()) {
+            return ResponseEntity.badRequest().body(new ErrorResponse("El rut del medico es obligatorio"));
+        }
+        if (medico.getNombre() == null || medico.getNombre().isEmpty()) {
+            return ResponseEntity.badRequest().body(new ErrorResponse("El nombre del medico es obligatorio"));
+        }
+        if (medico.getEdad() <= 0) {
+            return ResponseEntity.badRequest().body(new ErrorResponse("La edad del medico debe ser mayor a cero"));
+        }
+
+        // Actualizar el medico existente
+        existingMedico.setRutmed(medico.getRutmed());
+        existingMedico.setNombre(medico.getNombre());
+        existingMedico.setEdad(medico.getEdad());
+        existingMedico.setEspecialidad(medico.getEspecialidad());
+
+        Medico updatedMedico = medicoService.updateMedico(id, existingMedico);
+        return ResponseEntity.ok(updatedMedico);
     }
+
+    
+
 
     @DeleteMapping("/{id}")
     public void deleteMedico(@PathVariable Long id){
