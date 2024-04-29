@@ -18,7 +18,7 @@ import com.medicos.atencion.service.MedicoServicelmpl;
 
 
 
-@WebMvcTest(MedicoControllerTest.class)
+@WebMvcTest(AtencionController.class)
 public class MedicoControllerTest {
 
     @Autowired
@@ -43,9 +43,9 @@ public class MedicoControllerTest {
         //Act & Assert
         mockMvc.perform(MockMvcRequestBuilders.get("/medicos"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].nombre", Matchers.is("John")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].nombre", Matchers.is("Doe")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.aMapWithSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.medicoList[0].nombre", Matchers.is("John")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$._embedded.medicoList[1].nombre", Matchers.is("Doe")));
 
     }
 }

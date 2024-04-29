@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.medicos.atencion.model.Medico;
 import com.medicos.atencion.repository.MedicoRepository;
-import com.medicos.atencion.service.MedicoServicelmpl;
 
 @ExtendWith(MockitoExtension.class)
 public class MedicoServiceTest {
