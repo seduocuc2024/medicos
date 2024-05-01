@@ -6,7 +6,7 @@ WORKDIR /app
 COPY target/atencion-0.0.1-SNAPSHOT.jar app.jar
 
 #ubicacion y nombre del wallet descomprimido
-COPY Wallet_PRUEBA2 /app/oracle_wallet/
+COPY Wallet_PRUEBA2 /app/oracle_wallet
 EXPOSE 8080
 
 CMD ["java",".jar","app.jar"]
