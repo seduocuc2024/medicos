@@ -10,9 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
 import com.medicos.atencion.model.Medico;
-import com.medicos.atencion.service.MedicoService;
 import com.medicos.atencion.service.MedicoServicelmpl;
 
 
