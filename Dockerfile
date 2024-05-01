@@ -9,4 +9,4 @@ COPY target/atencion-0.0.1-SNAPSHOT.jar app.jar
 COPY Wallet_PRUEBA2 /app/oracle_wallet
 EXPOSE 8080
 
-CMD ["java",".jar","app.jar"]
+CMD ["java","-jar","app.jar"]

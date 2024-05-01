@@ -1,4 +1,4 @@
-version: '1'
+version: "1"
 services:
   microservicio:
     build: 
@@ -7,8 +7,8 @@ services:
     ports:
      - "8080:8080"
     environment:
-     - "spring.datasource.url=jdbc:oracle:thin:@PRUEBA2_high?TNS_ADMIN=/app/oracle_wallet"
-     - spring.datasource.username=PRUEBA2
-     - spring.datasource.password=OracleCloud123
+     - spring.datasource.url=jdbc:oracle:thin:@PRUEBA2_high?TNS_ADMIN=/app/oracle_wallet/
+     - SPRING_DATASOURCE_USERNAME=PRUEBA2
+     - SPRING_DATASOURCE_PASSWORD=OracleCloud123
     restart: always   
 
