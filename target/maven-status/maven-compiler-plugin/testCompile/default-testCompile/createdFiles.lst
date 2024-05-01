@@ -1,0 +1,4 @@
+com\medicos\atencion\repository\MedicoRepositoryTest.class
+com\medicos\atencion\service\MedicoServiceTest.class
+com\medicos\atencion\AtencionApplicationTests.class
+com\medicos\atencion\controller\MedicoControllerTest.class

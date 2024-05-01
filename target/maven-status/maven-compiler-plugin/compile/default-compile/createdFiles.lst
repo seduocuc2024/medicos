@@ -1,0 +1,8 @@
+com\medicos\atencion\controller\AtencionController.class
+com\medicos\atencion\service\MedicoService.class
+com\medicos\atencion\repository\MedicoRepository.class
+com\medicos\atencion\model\Medico.class
+com\medicos\atencion\controller\MedicoNotFoundException.class
+com\medicos\atencion\service\MedicoServicelmpl.class
+com\medicos\atencion\controller\AtencionController$ErrorResponse.class
+com\medicos\atencion\AtencionApplication.class
